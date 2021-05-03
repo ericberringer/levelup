@@ -4,4 +4,4 @@ from django.db.models.deletion import CASCADE
 
 class Game_Type(models.Model):
 
-        name = models.CharField(max_length=50)
+    label = models.CharField(max_length=50)

@@ -1,0 +1,38 @@
+[
+    {
+        "model": "levelupapi.gamer",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "first_name": "Steve",
+            "last_name": "Brownlee",
+            "bio": "Good at Coding",
+            "email": "me@me.com",
+            "password": "supercoder"
+        }
+    },
+    {
+        "model": "levelupapi.gamer",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "first_name": "Charfield",
+            "last_name": "Thucat",
+            "bio": "Always hungry",
+            "email": "cat@cat.com",
+            "password": "charandodie"
+        }
+    },
+    {
+        "model": "levelupapi.gamer",
+        "pk": 3,
+        "fields": {
+            "user": 3,
+            "first_name": "Turd",
+            "last_name": "Ferguson",
+            "bio": "Suck it Trebek",
+            "email": "turd@ferg.com",
+            "password": "tferg"
+        }
+    }
+]
