@@ -1,32 +1,32 @@
 [
     {
-        "model": "levelupapi.games",
+        "model": "levelupapi.game",
         "pk": 1,
         "fields": {
-            "name": "Stratego",
+            "title": "Stratego",
             "number_of_players": 2,
-            "game_type_id": 1,
-            "gamer_id": 1
+            "game_type": 1,
+            "skill_level": 2
         }
     },
     {
-        "model": "levelupapi.games",
+        "model": "levelupapi.game",
         "pk": 2,
         "fields": {
-            "name": "Skyrim",
+            "title": "Skyrim",
             "number_of_players": 8,
-            "game_type_id": 2,
-            "gamer_id": 1
+            "game_type": 2,
+            "skill_level": 3
         }
     },
     {
-        "model": "levelupapi.games",
+        "model": "levelupapi.game",
         "pk": 3,
         "fields": {
-            "name": "Runescape",
+            "title": "Runescape",
             "number_of_players": 4,
-            "game_type_id": 3,
-            "gamer_id": 1
+            "game_type": 3,
+            "skill_level": 4
         }
     }
 

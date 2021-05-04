@@ -1,32 +1,35 @@
 [
     {
-        "model": "levelupapi.events",
+        "model": "levelupapi.event",
         "pk": 1,
         "fields": {
             "event_name": "Stratego Ego",
             "description": "Stratego until we die.",
-            "date": "5/29/21",
-            "game_id": 1
+            "date": "2010-5-29",
+            "game": 1,
+            "organizer": 1
         }
     },
     {
-        "model": "levelupapi.events",
+        "model": "levelupapi.event",
         "pk": 2,
         "fields": {
             "event_name": "Pacific Skyrim",
             "description": "Kill em all.",
-            "date": "6/29/21",
-            "game_id": 2
+            "date": "2010-6-29",
+            "game": 2,
+            "organizer": 2
         }
     },
     {
-        "model": "levelupapi.events",
+        "model": "levelupapi.event",
         "pk": 3,
         "fields": {
             "event_name": "Die in the Wilderness",
             "description": "Mine coal til our hands bleed.",
-            "date": "7/29/21",
-            "game_id": 3
+            "date": "2010-7-29",
+            "game": 3,
+            "organizer": 3
         }
     }
 ]
