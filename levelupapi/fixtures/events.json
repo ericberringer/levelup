@@ -7,7 +7,8 @@
             "description": "Stratego until we die.",
             "date": "2010-5-29",
             "game": 1,
-            "organizer": 1
+            "organizer": 1,
+            "time": "12:00"
         }
     },
     {
@@ -18,7 +19,8 @@
             "description": "Kill em all.",
             "date": "2010-6-29",
             "game": 2,
-            "organizer": 2
+            "organizer": 2,
+            "time": "12:00"
         }
     },
     {
@@ -29,7 +31,8 @@
             "description": "Mine coal til our hands bleed.",
             "date": "2010-7-29",
             "game": 3,
-            "organizer": 3
+            "organizer": 3,
+            "time": "12:00"
         }
     }
 ]
