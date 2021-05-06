@@ -3,6 +3,8 @@
         "model": "levelupapi.game",
         "pk": 1,
         "fields": {
+            "gamer": 1,
+            "maker" : "Dominic DeCoco",
             "title": "Stratego",
             "number_of_players": 2,
             "game_type": 1,
@@ -13,6 +15,8 @@
         "model": "levelupapi.game",
         "pk": 2,
         "fields": {
+            "gamer": 1,
+            "maker" : "Gwar Ilami",
             "title": "Skyrim",
             "number_of_players": 8,
             "game_type": 2,
@@ -23,6 +27,8 @@
         "model": "levelupapi.game",
         "pk": 3,
         "fields": {
+            "gamer": 1,
+            "maker" : "Benjamen Doverington",
             "title": "Runescape",
             "number_of_players": 4,
             "game_type": 3,
