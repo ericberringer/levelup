@@ -9,7 +9,7 @@ from rest_framework import status
 from levelupapi.models import Game, GameType, Gamer
 
 
-class Games(ViewSet):
+class GameView(ViewSet):
     """Level up games"""
 
     def create(self, request):
@@ -35,8 +35,8 @@ class Games(ViewSet):
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed as the
         # `gameTypeId` in the body of the request.
-        gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-        game.gametype = gametype
+        game_type = GameType.objects.get(pk=request.data["gameTypeId"])
+        game.gametype = game_type
 
         # Try to save the new game to the database, then
         # serialize the game instance as JSON, and send the
@@ -54,7 +54,7 @@ class Games(ViewSet):
 
 
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, pk):
         """Handle GET requests for single game
 
         Returns:
@@ -90,8 +90,8 @@ class Games(ViewSet):
         game.skill_level = request.data["skillLevel"]
         game.gamer = gamer
 
-        gametype = GameType.objects.get(pk=request.data["gameTypeId"])
-        game.gametype = gametype
+        game_type = GameType.objects.get(pk=request.data["gameTypeId"])
+        game.gametype = game_type
         game.save()
 
         # 204 status code means everything worked but the
@@ -137,13 +137,13 @@ class Games(ViewSet):
             games, many=True, context={'request': request})
         return Response(serializer.data)
 
-    class GameSerializer(serializers.ModelSerializer):
-        """JSON serializer for games
+class GameSerializer(serializers.ModelSerializer):
+    """JSON serializer for games
 
-        Arguments:
-            serializer type
-        """
-        class Meta:
-            model = Game
-            fields = ('id', 'title', 'game_type', 'number_of_players', 'skill_level', 'gametype')
-            depth = 1
+    Arguments:
+        serializer type
+    """
+    class Meta:
+        model = Game
+        fields = ('id', 'title', 'game_type', 'number_of_players', 'skill_level', 'game_type')
+        depth = 1
