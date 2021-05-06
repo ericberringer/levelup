@@ -1,13 +1,14 @@
-
 from rest_framework import routers
 from django.conf.urls import include
 from django.urls import path
 from levelupapi.views import register_user, login_user
-from levelupapi.views import GameTypeView, GameView
+from levelupapi.views import GameTypeView, GameView, EventView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'gametypes', GameTypeView, 'gametype')
 router.register(r'games', GameView, 'game')
+router.register(r'events', EventView, 'event')
+
 
 urlpatterns = [
     # Requests to http://localhost:8000/register will be routed to the register_user function
