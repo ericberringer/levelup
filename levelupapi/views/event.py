@@ -122,6 +122,7 @@ class EventView(ViewSet):
             events, many=True, context={'request': request})
         return Response(serializer.data)
 
+    # setting up the details on our event sign up route
     @action(methods=['post', 'delete'], detail=True)
     def signup(self, request, pk=None):
         """Managing gamers signing up for events"""
@@ -210,7 +211,7 @@ class EventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ('id', 'game', 'organizer',
+        fields = ('id', 'game', 'event_name', 'organizer',
                   'description', 'date', 'time', 'joined')
 
 class GameSerializer(serializers.ModelSerializer):
