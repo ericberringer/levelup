@@ -20,16 +20,19 @@ class Profile(ViewSet):
         gamer = Gamer.objects.get(user=request.auth.user)
         events = Event.objects.filter(attendees=gamer)
 
+        # many=True is telling the serializer there is more than one thing to serialize.
         events = EventSerializer(
             events, many=True, context={'request': request})
         gamer = GamerSerializer(
             gamer, many=False, context={'request': request})
 
         # Manually construct the JSON structure you want in the response
+        # data is the dictionary version of the gamer object
+        # this chunk is creating a new dictionary.
         profile = {}
         profile["gamer"] = gamer.data
         profile["events"] = events.data
-
+        # Response is turning the profile dictionary into JSON.
         return Response(profile)
 
 class UserSerializer(serializers.ModelSerializer):

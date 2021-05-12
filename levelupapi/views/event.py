@@ -105,7 +105,8 @@ class EventView(ViewSet):
 
         # Set the `joined` property on every event
         for event in events:
-            event.joined = None
+            # this exression will run and return a true or false value
+            event.joined = gamer in event.attendees.all()
 
             try:
                 EventGamer.objects.get(event=event, gamer=gamer)
@@ -212,7 +213,7 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'game', 'event_name', 'organizer',
-                  'description', 'date', 'time', 'joined')
+                  'description', 'date', 'time', 'attendees', 'joined')
 
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games"""
