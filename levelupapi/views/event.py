@@ -1,6 +1,7 @@
 """View module for handling requests about events"""
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.db.models import Count
 from django.http import HttpResponseServerError
 from rest_framework import status
 from rest_framework.decorators import action
@@ -101,7 +102,7 @@ class EventView(ViewSet):
         """
         # Get the current authenticated user
         gamer = Gamer.objects.get(user=request.auth.user)
-        events = Event.objects.all()
+        events = Event.objects.annotate(attendees_count=Count('attendees'))
 
         # Set the `joined` property on every event
         for event in events:
@@ -213,7 +214,7 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ('id', 'game', 'event_name', 'organizer',
-                  'description', 'date', 'time', 'attendees', 'joined')
+                  'description', 'date', 'time', 'attendees', 'joined', 'attendees_count')
 
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games"""
