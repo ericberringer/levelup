@@ -1,1 +1,0 @@
-DROP TABLE levelupapi_game_type
