@@ -17,6 +17,7 @@ class GameTypeView(ViewSet):
         """
         try:
             game_type = GameType.objects.get(pk=pk)
+            # serializer converts data to JSON tobe sent back to the client
             serializer = GameTypeSerializer(game_type, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
