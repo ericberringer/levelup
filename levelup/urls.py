@@ -4,6 +4,9 @@ from django.urls import path
 from levelupapi.views import register_user, login_user
 from levelupapi.views import GameTypeView, GameView, EventView, Profile
 
+
+# Default Router will allow a client to submit either one of the url's in the router.register
+# i.e. /gametypes for all gametypes, and /gametype/1 for a single game type by id
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'gametypes', GameTypeView, 'gametype')
 router.register(r'games', GameView, 'game')
