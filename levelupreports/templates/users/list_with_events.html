@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LevelUp Reports</title>
+    <script></script>
+  </head>
+  <body>
+    <h1>User Events</h1>
+{% comment %} userevent_list is coming from 
+    context = {
+        'userevent_list': list_of_users_with_events
+    } 
+    in our eventuser_list method in views/users/eventsbyuser{% endcomment %}
+    {% for user in userevent_list %}
+        <h2>Event Organizer: {{ user.full_name }}</h2>
+        <ol>
+            {% for event in user.events %}
+            <li>
+                Event: {{ event.event_name }}
+                <div>
+                Game: {{ event.title }}
+                </div>
+                <div>
+                Date: {{ event.date }} {{ event.time }}
+                </div>
+            </li>
+            {% endfor %}
+            {% comment %} {% for game in userevent_list %}
+            <li>Game: {{ game.title }}</li>
+            {% endfor %} {% endcomment %}
+        </ol>
+    {% endfor %}
+  </body>
+</html>
+
+{% comment %} {% Logic is wrapped in percent/curlies, like { } in jsx. %} {% endcomment %}
