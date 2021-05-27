@@ -63,9 +63,13 @@ def eventuser_list(request):
                 event.time = row["time"]
                 event.event_name = row["event_name"]
 
+        # This creates a game instance, set the values of this instance to
+        # the event instance so we have access to them within the event dictionary.
+        # game.title can now be accessed by using event.title.
+
                 game = Game()
                 game.title = row["title"]
-                event.title = row["title"]
+                event.title = game.title
 
                 # Store the user's id
                 uid = row["user_id"]

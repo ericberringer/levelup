@@ -1,7 +1,7 @@
 """Module for generating games by user report"""
 import sqlite3
 from django.shortcuts import render
-from levelupapi.models import Game
+from levelupapi.models import Game, Gamer
 from levelupreports.views import Connection
 
 
@@ -22,6 +22,7 @@ def usergame_list(request):
                     g.game_type_id,
                     g.number_of_players,
                     g.skill_level,
+                    gr.bio,
                     u.id user_id,
                     u.first_name || ' ' || u.last_name AS full_name
                 FROM
@@ -64,6 +65,10 @@ def usergame_list(request):
                 game.skill_level = row["skill_level"]
                 game.number_of_players = row["number_of_players"]
                 game.game_type_id = row["game_type_id"]
+                
+                gamer = Gamer()
+                gamer.bio = row["bio"]
+                
 
                 # Store the user's id
                 uid = row["user_id"]
@@ -79,6 +84,7 @@ def usergame_list(request):
                     games_by_user[uid] = {}
                     games_by_user[uid]["id"] = uid
                     games_by_user[uid]["full_name"] = row["full_name"]
+                    games_by_user[uid]["bio"] = row["bio"]
                     games_by_user[uid]["games"] = [game]
 
         # Get only the values from the dictionary and create a list from them
