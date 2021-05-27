@@ -14,6 +14,7 @@
     in our usergame_list method in views/users/gamesbyuser{% endcomment %}
     {% for user in usergame_list %}
         <h2>{{ user.full_name }}</h2>
+        <h4>User Bio: {{ user.bio }}</h4>
         <ol>
             {% for game in user.games %}
             <li>
