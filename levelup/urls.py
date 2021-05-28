@@ -1,6 +1,7 @@
 from rest_framework import routers
 from django.conf.urls import include
 from django.urls import path
+from django.contrib import admin
 from levelupapi.views import register_user, login_user
 from levelupapi.views import GameTypeView, GameView, EventView, Profile
 
@@ -15,6 +16,7 @@ router.register(r'profile', Profile, 'profile')
 
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     # Requests to http://localhost:8000/register will be routed to the register_user function
     path('register', register_user),
     # Requests to http://localhost:8000/login will be routed to the login_user function

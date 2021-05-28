@@ -83,6 +83,7 @@ def eventuser_list(request):
 
         # Get only the values from the dictionary and create a list from them
         list_of_users_with_events = events_by_user.values()
+        # can convert to a list by doing list(events_by_user.values())
 
         # Specify the Django template and provide data context
         template = 'users/list_with_events.html'
