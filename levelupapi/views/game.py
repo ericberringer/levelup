@@ -9,10 +9,14 @@ from rest_framework import status
 from django.db.models import Count
 from levelupapi.models import Game, GameType, Gamer
 from django.db.models import Q
+from rest_framework.permissions import DjangoModelPermissions
 
 
 class GameView(ViewSet):
     """Level up games"""
+
+    permission_classes = [ DjangoModelPermissions ]
+    queryset = Game.objects.none()
 
     def create(self, request):
         """Handle POST operations
